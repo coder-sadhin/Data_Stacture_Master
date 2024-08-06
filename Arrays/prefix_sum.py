@@ -62,6 +62,12 @@ class PrefixSum:
         True
         """
 
+        sums = {0}
+        for sum_item in self.prefix_sum:
+            if sum_item - target_sum in sums:
+                return True
+
+            sums.add(sum_item)
 
         return False
 
