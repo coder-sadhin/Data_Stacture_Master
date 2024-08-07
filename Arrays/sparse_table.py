@@ -77,7 +77,11 @@ def query(sparse_table: list[list[int]], left_bound: int, right_bound: int) -> i
     ...
     ValueError: empty number list not allowed
     """
-   
+    if left_bound < 0 or right_bound >= len(sparse_table[0]):
+        raise IndexError("list index out of range")
+
+    # highest subset length of power of 2 that is within range [left_bound, right_bound]
+    j = int(log2(right_bound - left_bound + 1))
 
     # minimum of 2 overlapping smaller subsets:
     # [left_bound, left_bound + 2 ** j - 1] and [right_bound - 2 ** j + 1, right_bound]
