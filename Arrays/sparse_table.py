@@ -10,3 +10,13 @@ Overall space complexity: O(nlogn)
 
 Wikipedia link: https://en.wikipedia.org/wiki/Range_minimum_query
 """
+
+from math import log2
+
+
+
+if __name__ == "__main__":
+    from doctest import testmod
+
+    testmod()
+    print(f"{query(build_sparse_table([3, 1, 9]), 2, 2) = }")
