@@ -64,6 +64,33 @@ def product_sum(arr: list[int | list], depth: int) -> int:
     return total_sum * depth
 
 
+def product_sum_array(array: list[int | list]) -> int:
+    """
+    Calculates the product sum of an array.
+
+    Args:
+        array (List[Union[int, List]]): The array of integers and nested lists.
+
+    Returns:
+        int: The product sum of the array.
+
+    Examples:
+        >>> product_sum_array([1, 2, 3])
+        6
+        >>> product_sum_array([1, [2, 3]])
+        11
+        >>> product_sum_array([1, [2, [3, 4]]])
+        47
+        >>> product_sum_array([0])
+        0
+        >>> product_sum_array([-3.5, [1, [0.5]]])
+        1.5
+        >>> product_sum_array([1, -2])
+        -1
+
+    """
+    
+
 
 if __name__ == "__main__":
     import doctest
