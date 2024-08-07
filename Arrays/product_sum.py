@@ -20,6 +20,50 @@ Output: 12
 """
 
 
+def product_sum(arr: list[int | list], depth: int) -> int:
+    """
+    Recursively calculates the product sum of an array.
+
+    The product sum of an array is defined as the sum of its elements multiplied by
+    their respective depths.  If an element is a list, its product sum is calculated
+    recursively by multiplying the sum of its elements with its depth plus one.
+
+    Args:
+        arr: The array of integers and nested lists.
+        depth: The current depth level.
+
+    Returns:
+        int: The product sum of the array.
+
+    Examples:
+        >>> product_sum([1, 2, 3], 1)
+        6
+        >>> product_sum([-1, 2, [-3, 4]], 2)
+        8
+        >>> product_sum([1, 2, 3], -1)
+        -6
+        >>> product_sum([1, 2, 3], 0)
+        0
+        >>> product_sum([1, 2, 3], 7)
+        42
+        >>> product_sum((1, 2, 3), 7)
+        42
+        >>> product_sum({1, 2, 3}, 7)
+        42
+        >>> product_sum([1, -1], 1)
+        0
+        >>> product_sum([1, -2], 1)
+        -1
+        >>> product_sum([-3.5, [1, [0.5]]], 1)
+        1.5
+
+    """
+    total_sum = 0
+    for ele in arr:
+        total_sum += product_sum(ele, depth + 1) if isinstance(ele, list) else ele
+    return total_sum * depth
+
+
 
 if __name__ == "__main__":
     import doctest
