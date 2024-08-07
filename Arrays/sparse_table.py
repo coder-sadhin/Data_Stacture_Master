@@ -58,6 +58,32 @@ def build_sparse_table(number_list: list[int]) -> list[list[int]]:
     return sparse_table
 
 
+def query(sparse_table: list[list[int]], left_bound: int, right_bound: int) -> int:
+    """
+    >>> query(build_sparse_table([8, 1, 0, 3, 4, 9, 3]), 0, 4)
+    0
+    >>> query(build_sparse_table([8, 1, 0, 3, 4, 9, 3]), 4, 6)
+    3
+    >>> query(build_sparse_table([3, 1, 9]), 2, 2)
+    9
+    >>> query(build_sparse_table([3, 1, 9]), 0, 1)
+    1
+    >>> query(build_sparse_table([8, 1, 0, 3, 4, 9, 3]), 0, 11)
+    Traceback (most recent call last):
+    ...
+    IndexError: list index out of range
+    >>> query(build_sparse_table([]), 0, 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: empty number list not allowed
+    """
+   
+
+    # minimum of 2 overlapping smaller subsets:
+    # [left_bound, left_bound + 2 ** j - 1] and [right_bound - 2 ** j + 1, right_bound]
+    return min(sparse_table[j][right_bound - (1 << j) + 1], sparse_table[j][left_bound])
+
+
 if __name__ == "__main__":
     from doctest import testmod
 
