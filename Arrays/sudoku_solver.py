@@ -57,6 +57,13 @@ def parse_grid(grid):
     return values
 
 
+def grid_values(grid):
+    "Convert grid into a dict of {square: char} with '0' or '.' for empties."
+    chars = [c for c in grid if c in digits or c in "0."]
+    assert len(chars) == 81
+    return dict(zip(squares, chars))
+
+
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
