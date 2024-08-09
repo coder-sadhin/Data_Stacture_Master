@@ -161,6 +161,15 @@ def solve_all(grids, name="", showif=0.0):
         )
 
 
+def solved(values):
+    "A puzzle is solved if each unit is a permutation of the digits 1 to 9."
+
+    def unitsolved(unit):
+        return {values[s] for s in unit} == set(digits)
+
+    return values is not False and all(unitsolved(unit) for unit in unitlist)
+
+
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
