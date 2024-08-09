@@ -180,15 +180,7 @@ def random_puzzle(assignments=17):
     Note the resulting puzzle is not guaranteed to be solvable, but empirically
     about 99.8% of them are solvable. Some have multiple solutions."""
     values = {s: digits for s in squares}
-    for s in shuffled(squares):
-        if not assign(values, s, random.choice(values[s])):
-            break
-        ds = [values[s] for s in squares if len(values[s]) == 1]
-        if len(ds) >= assignments and len(set(ds)) >= 8:
-            return "".join(values[s] if len(values[s]) == 1 else "." for s in squares)
-    return random_puzzle(assignments)  ## Give up and make a new puzzle
-
-
+    
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
