@@ -170,6 +170,11 @@ def solved(values):
     return values is not False and all(unitsolved(unit) for unit in unitlist)
 
 
+def from_file(filename, sep="\n"):
+    "Parse a file into a list of strings, separated by sep."
+    return open(filename).read().strip().split(sep)  # noqa: SIM115
+
+
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
