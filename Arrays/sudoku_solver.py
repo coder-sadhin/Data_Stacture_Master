@@ -136,6 +136,11 @@ def search(values):
     return some(search(assign(values.copy(), s, d)) for d in values[s])
 
 
+def solve_all(grids, name="", showif=0.0):
+    """Attempt to solve a sequence of grids. Report results.
+    When showif is a number of seconds, display puzzles that take longer.
+    When showif is None, don't display any puzzles."""
+
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
