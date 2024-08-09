@@ -189,6 +189,12 @@ def random_puzzle(assignments=17):
     return random_puzzle(assignments)  ## Give up and make a new puzzle
 
 
+def shuffled(seq):
+    "Return a randomly shuffled copy of the input sequence."
+    seq = list(seq)
+    random.shuffle(seq)
+    return seq
+
 
 grid1 = (
     "003020600900305001001806400008102900700000008006708200002609500800203009005010300"
