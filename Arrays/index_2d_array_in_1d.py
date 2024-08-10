@@ -28,6 +28,37 @@ from dataclasses import dataclass
 class Index2DArrayIterator:
     matrix: list[list[int]]
 
+    def __iter__(self) -> Iterator[int]:
+        """
+        >>> tuple(Index2DArrayIterator([[5], [-523], [-1], [34], [0]]))
+        (5, -523, -1, 34, 0)
+        >>> tuple(Index2DArrayIterator([[5, -523, -1], [34, 0]]))
+        (5, -523, -1, 34, 0)
+        >>> tuple(Index2DArrayIterator([[5, -523, -1, 34, 0]]))
+        (5, -523, -1, 34, 0)
+        >>> t = Index2DArrayIterator([[5, 2, 25], [23, 14, 5], [324, -1, 0]])
+        >>> tuple(t)
+        (5, 2, 25, 23, 14, 5, 324, -1, 0)
+        >>> list(t)
+        [5, 2, 25, 23, 14, 5, 324, -1, 0]
+        >>> sorted(t)
+        [-1, 0, 2, 5, 5, 14, 23, 25, 324]
+        >>> tuple(t)[3]
+        23
+        >>> sum(t)
+        397
+        >>> -1 in t
+        True
+        >>> t = iter(Index2DArrayIterator([[5], [-523], [-1], [34], [0]]))
+        >>> next(t)
+        5
+        >>> next(t)
+        -523
+        """
+        for row in self.matrix:
+            yield from row
+
+
 
 if __name__ == "__main__":
     import doctest
