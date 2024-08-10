@@ -18,6 +18,15 @@ def permute_recursive(nums: list[int]) -> list[list[int]]:
     return result
 
 
+def permute_backtrack(nums: list[int]) -> list[list[int]]:
+    """
+    Return all permutations of the given list.
+
+    >>> permute_backtrack([1, 2, 3])
+    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+    """
+
+    
 
 if __name__ == "__main__":
     import doctest
