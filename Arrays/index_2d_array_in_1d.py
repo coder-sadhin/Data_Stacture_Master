@@ -24,6 +24,10 @@ from collections.abc import Iterator
 from dataclasses import dataclass
 
 
+@dataclass
+class Index2DArrayIterator:
+    matrix: list[list[int]]
+
 
 if __name__ == "__main__":
     import doctest
