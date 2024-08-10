@@ -5,7 +5,19 @@ def permute_recursive(nums: list[int]) -> list[list[int]]:
     >>> permute_recursive([1, 2, 3])
     [[3, 2, 1], [2, 3, 1], [1, 3, 2], [3, 1, 2], [2, 1, 3], [1, 2, 3]]
     """
-    
+    result: list[list[int]] = []
+    if len(nums) == 0:
+        return [[]]
+    for _ in range(len(nums)):
+        n = nums.pop(0)
+        permutations = permute_recursive(nums.copy())
+        for perm in permutations:
+            perm.append(n)
+        result.extend(permutations)
+        nums.append(n)
+    return result
+
+
 
 if __name__ == "__main__":
     import doctest
