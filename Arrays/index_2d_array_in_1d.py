@@ -19,3 +19,13 @@ and retrieves the integer value at that index.
 Python doctests can be run using this command:
 python3 -m doctest -v index_2d_array_in_1d.py
 """
+
+from collections.abc import Iterator
+from dataclasses import dataclass
+
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
