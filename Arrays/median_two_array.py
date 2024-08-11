@@ -38,7 +38,13 @@ def find_median_sorted_arrays(nums1: list[int], nums2: list[int]) -> float:
         >>> find_median_sorted_arrays([-1.1, -2.2], [-3.3, -4.4])
         -2.75
     """
-    
+    if not nums1 and not nums2:
+        raise ValueError("Both input arrays are empty.")
+
+    # Merge the arrays into a single sorted array.
+    merged = sorted(nums1 + nums2)
+    total = len(merged)
+
     if total % 2 == 1:  # If the total number of elements is odd
         return float(merged[total // 2])  # then return the middle element
 
