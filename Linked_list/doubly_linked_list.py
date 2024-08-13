@@ -27,6 +27,17 @@ class DoublyLinkedList:
             yield node.data
             node = node.next
 
+    def __str__(self):
+        """
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.insert_at_tail('a')
+        >>> linked_list.insert_at_tail('b')
+        >>> linked_list.insert_at_tail('c')
+        >>> str(linked_list)
+        'a->b->c'
+        """
+        return "->".join([str(item) for item in self])
+
 
 if __name__ == "__main__":
     from doctest import testmod
