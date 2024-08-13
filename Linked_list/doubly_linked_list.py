@@ -51,6 +51,9 @@ class DoublyLinkedList:
     def insert_at_head(self, data):
         self.insert_at_nth(0, data)
 
+    def insert_at_tail(self, data):
+        self.insert_at_nth(len(self), data)
+
 
 if __name__ == "__main__":
     from doctest import testmod
