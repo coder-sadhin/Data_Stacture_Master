@@ -106,6 +106,51 @@ class DoublyLinkedList:
     def delete_tail(self):
         return self.delete_at_nth(len(self) - 1)
 
+    def delete_at_nth(self, index: int):
+        """
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.delete_at_nth(0)
+        Traceback (most recent call last):
+            ....
+        IndexError: list index out of range
+        >>> for i in range(0, 5):
+        ...     linked_list.insert_at_nth(i, i + 1)
+        >>> linked_list.delete_at_nth(0) == 1
+        True
+        >>> linked_list.delete_at_nth(3) == 5
+        True
+        >>> linked_list.delete_at_nth(1) == 3
+        True
+        >>> str(linked_list)
+        '2->4'
+        >>> linked_list.delete_at_nth(2)
+        Traceback (most recent call last):
+            ....
+        IndexError: list index out of range
+        """
+        length = len(self)
+
+        if not 0 <= index <= length - 1:
+            raise IndexError("list index out of range")
+        delete_node = self.head  # default first node
+        if length == 1:
+            self.head = self.tail = None
+        elif index == 0:
+            self.head = self.head.next
+            self.head.previous = None
+        elif index == length - 1:
+            delete_node = self.tail
+            self.tail = self.tail.previous
+            self.tail.next = None
+        else:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+            delete_node = temp
+            temp.next.previous = temp.previous
+            temp.previous.next = temp.next
+        return delete_node.data
+
 
 if __name__ == "__main__":
     from doctest import testmod
