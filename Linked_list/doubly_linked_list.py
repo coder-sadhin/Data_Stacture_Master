@@ -103,7 +103,9 @@ class DoublyLinkedList:
     def delete_head(self):
         return self.delete_at_nth(0)
 
-    
+    def delete_tail(self):
+        return self.delete_at_nth(len(self) - 1)
+
 
 if __name__ == "__main__":
     from doctest import testmod
