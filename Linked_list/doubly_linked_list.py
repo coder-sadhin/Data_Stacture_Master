@@ -38,6 +38,16 @@ class DoublyLinkedList:
         """
         return "->".join([str(item) for item in self])
 
+    def __len__(self):
+        """
+        >>> linked_list = DoublyLinkedList()
+        >>> for i in range(0, 5):
+        ...     linked_list.insert_at_nth(i, i + 1)
+        >>> len(linked_list) == 5
+        True
+        """
+        return sum(1 for _ in self)
+
 
 if __name__ == "__main__":
     from doctest import testmod
