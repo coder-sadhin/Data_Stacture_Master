@@ -8,3 +8,7 @@ class Node:
         return f"{self.data}"
 
 
+if __name__ == "__main__":
+    from doctest import testmod
+
+    testmod()
