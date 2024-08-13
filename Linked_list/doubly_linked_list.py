@@ -48,6 +48,9 @@ class DoublyLinkedList:
         """
         return sum(1 for _ in self)
 
+    def insert_at_head(self, data):
+        self.insert_at_nth(0, data)
+
 
 if __name__ == "__main__":
     from doctest import testmod
