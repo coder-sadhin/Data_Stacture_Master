@@ -100,6 +100,10 @@ class DoublyLinkedList:
             new_node.next = temp
             temp.previous = new_node
 
+    def delete_head(self):
+        return self.delete_at_nth(0)
+
+    
 
 if __name__ == "__main__":
     from doctest import testmod
