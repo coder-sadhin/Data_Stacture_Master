@@ -17,3 +17,9 @@ class Node:
     def get_previous(self):
         return self.previous
 
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testmod()
