@@ -171,6 +171,18 @@ class DoublyLinkedList:
             current.next.previous = current.previous  # 1 <--> 3
         return data
 
+    def is_empty(self):
+        """
+        >>> linked_list = DoublyLinkedList()
+        >>> linked_list.is_empty()
+        True
+        >>> linked_list.insert_at_tail(1)
+        >>> linked_list.is_empty()
+        False
+        """
+        return len(self) == 0
+
+
 
 if __name__ == "__main__":
     from doctest import testmod
