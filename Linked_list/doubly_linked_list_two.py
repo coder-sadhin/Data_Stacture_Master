@@ -18,6 +18,22 @@ class Node:
         return self.previous
 
 
+class LinkedListIterator:
+    def __init__(self, head):
+        self.current = head
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if not self.current:
+            raise StopIteration
+        else:
+            value = self.current.get_data()
+            self.current = self.current.get_next()
+            return value
+
+
 
 if __name__ == "__main__":
     import doctest
