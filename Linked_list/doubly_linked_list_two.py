@@ -99,7 +99,47 @@ class LinkedList:
 
         node.previous = node_to_insert
 
-    
+    def insert_after_node(self, node: Node, node_to_insert: Node) -> None:
+        node_to_insert.previous = node
+        node_to_insert.next = node.next
+
+        if node.get_next() is None:
+            self.tail = node_to_insert
+        else:
+            node.next.previous = node_to_insert
+
+        node.next = node_to_insert
+
+    def insert_at_position(self, position: int, value: int) -> None:
+        current_position = 1
+        new_node = Node(value)
+        node = self.head
+        while node:
+            if current_position == position:
+                self.insert_before_node(node, new_node)
+                return
+            current_position += 1
+            node = node.next
+        self.insert_after_node(self.tail, new_node)
+
+    def get_node(self, item: int) -> Node:
+        node = self.head
+        while node:
+            if node.get_data() == item:
+                return node
+            node = node.get_next()
+        raise Exception("Node not found")
+
+    def delete_value(self, value):
+        if (node := self.get_node(value)) is not None:
+            if node == self.head:
+                self.head = self.head.get_next()
+
+            if node == self.tail:
+                self.tail = self.tail.get_previous()
+
+            self.remove_node_pointers(node)
+
 
 if __name__ == "__main__":
     import doctest
