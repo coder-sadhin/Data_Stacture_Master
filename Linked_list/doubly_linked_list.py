@@ -151,6 +151,26 @@ class DoublyLinkedList:
             temp.previous.next = temp.next
         return delete_node.data
 
+    def delete(self, data) -> str:
+        current = self.head
+
+        while current.data != data:  # Find the position to delete
+            if current.next:
+                current = current.next
+            else:  # We have reached the end an no value matches
+                raise ValueError("No data matching given value")
+
+        if current == self.head:
+            self.delete_head()
+
+        elif current == self.tail:
+            self.delete_tail()
+
+        else:  # Before: 1 <--> 2(current) <--> 3
+            current.previous.next = current.next  # 1 --> 3
+            current.next.previous = current.previous  # 1 <--> 3
+        return data
+
 
 if __name__ == "__main__":
     from doctest import testmod
