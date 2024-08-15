@@ -35,6 +35,26 @@ class CircularLinkedList:
         """
         return sum(1 for _ in self)
 
+    def __repr__(self) -> str:
+        """
+        Generate a string representation of the Circular Linked List.
+        Returns:
+            A string of the format "1->2->....->N".
+        """
+        return "->".join(str(item) for item in iter(self))
+
+    def insert_tail(self, data: Any) -> None:
+        """
+        Insert a node with the given data at the end of the Circular Linked List.
+        """
+        self.insert_nth(len(self), data)
+
+    def insert_head(self, data: Any) -> None:
+        """
+        Insert a node with the given data at the beginning of the Circular Linked List.
+        """
+        self.insert_nth(0, data)
+
 if __name__ == "__main__":
     import doctest
 
