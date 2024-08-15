@@ -140,6 +140,21 @@ class LinkedList:
 
             self.remove_node_pointers(node)
 
+    @staticmethod
+    def remove_node_pointers(node: Node) -> None:
+        if node.get_next():
+            node.next.previous = node.previous
+
+        if node.get_previous():
+            node.previous.next = node.next
+
+        node.next = None
+        node.previous = None
+
+    def is_empty(self):
+        return self.head is None
+
+
 
 if __name__ == "__main__":
     import doctest
