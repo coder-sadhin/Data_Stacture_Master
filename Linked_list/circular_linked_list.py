@@ -29,6 +29,12 @@ class CircularLinkedList:
             if node == self.head:
                 break
 
+    def __len__(self) -> int:
+        """
+        Get the length (number of nodes) in the Circular Linked List.
+        """
+        return sum(1 for _ in self)
+
 if __name__ == "__main__":
     import doctest
 
